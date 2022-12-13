@@ -19,7 +19,7 @@ import com.example.dogglers.R
 import com.example.dogglers.model.Dog
 
 /**
- * An object to generate a static list of dogs
+ * Объект для создания статического списка собак
  */
 object DataSource {
 

@@ -16,9 +16,9 @@
 package com.example.dogglers.const
 
 /**
- * Static object to hold constant values to be associated with a layout.
- * These values are intended to be passed into the [DogCardAdapter] to determine the type of layout
- * to inflate.
+ * Статический объект для хранения постоянных значений, которые будут связаны с макетом.
+ * Эти значения предназначены для передачи в [Адаптер карты собаки] для определения типа макета
+ * для надувания.
  */
 object Layout {
     val VERTICAL = 1

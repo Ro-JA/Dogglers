@@ -16,10 +16,17 @@
 package com.example.dogglers.adapter
 
 import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.dogglers.R
+import com.example.dogglers.const.Layout
 import com.example.dogglers.data.DataSource
+import com.example.dogglers.data.DataSource.dogs
+import com.example.dogglers.model.Dog
 
 /**
  * Адаптер для расширения соответствующего макета элемента списка и заполнения представления информацией
@@ -31,7 +38,7 @@ class DogCardAdapter(
 ): RecyclerView.Adapter<DogCardAdapter.DogCardViewHolder>() {
 
     // ЗАДАЧА: Инициализируйте данные, используя список, найденный в data/Источнике данных
-    val dogs = DataSource
+    private val listDogs = DataSource.dogs
 
 
     /**
@@ -39,24 +46,33 @@ class DogCardAdapter(
      */
     class DogCardViewHolder(view: View?): RecyclerView.ViewHolder(view!!) {
         // ЧТО НУЖНО СДЕЛАТЬ: объявить и инициализировать все компоненты пользовательского интерфейса элемента списка
-
+        val imageDog: ImageView = view!!.findViewById(R.id.image_view_dog)
+        val nameDog: TextView =  view!!.findViewById(R.id.text_view_dog_name)
+        val ageDog: TextView = view!!.findViewById(R.id.text_view_dog_age)
+        val hobbiesDog: TextView = view!!.findViewById(R.id.text_view_dog_hobbies)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DogCardViewHolder {
-        // TODO: Use a conditional to determine the layout type and set it accordingly.
-        //  if the layout variable is Layout.GRID the grid list item should be used. Otherwise the
-        //  the vertical/horizontal list item should be used.
+        // TODO: Используйте условие для определения типа макета и установите его соответствующим образом.
+        // если переменной layout является Layout.СЕТКА следует использовать элемент списка сетки. В противном
+        // случае следует использовать элемент вертикального/горизонтального списка.
 
-        // TODO Inflate the layout
+        // // ЧТОБЫ СДЕЛАТЬ раздувание макета
 
-        // TODO: Null should not be passed into the view holder. This should be updated to reflect
-        //  the inflated layout.
-        return DogCardViewHolder(null)
+        // TODO: Значение Null не должно передаваться владельцу представления. Это должно быть обновлено, чтобы отразить
+        // раздутый макет.
+        val adapterLayout = if(layout == 3) {
+           LayoutInflater.from(parent.context)
+                .inflate(R.layout.grid_list_item, parent, false)
+        } else {
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.vertical_horizontal_list_item, parent, false)
+        }
+        return DogCardViewHolder(adapterLayout)
     }
 
-    override fun getItemCount(): Int = 0 // TODO: return the size of the data set instead of 0
-
-    override fun onBindViewHolder(holder: DogCardViewHolder, position: Int) {
+    override fun getItemCount(): Int = listDogs.size // ЗАДАЧА: вернуть размер набора данных вместо 0
+    override fun onBindViewHolder(holder: DogCardAdapter.DogCardViewHolder, position: Int) {
         // TODO: Get the data at the current position
         // TODO: Set the image resource for the current dog
         // TODO: Set the text for the current dog's name
