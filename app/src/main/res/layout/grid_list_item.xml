@@ -29,7 +29,7 @@
         android:layout_height="wrap_content">
 
        <ImageView
-           android:id="@+id/image_view_dog_grid"
+           android:id="@+id/image_view_dog"
            android:layout_height="194dp"
            android:layout_width="match_parent"
            app:layout_constraintStart_toStartOf="parent"
@@ -39,33 +39,33 @@
            />
 
         <TextView
-            android:id="@+id/text_view_dog_name_grid"
+            android:id="@+id/text_view_dog_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_view_dog_grid"
+            app:layout_constraintTop_toBottomOf="@id/image_view_dog"
             style="@style/TextAppearance.MaterialComponents.Headline6"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginTop="8dp"/>
 
         <TextView
-            android:id="@+id/text_view_dog_age_grid"
+            android:id="@+id/text_view_dog_age"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_view_dog_name_grid"
+            app:layout_constraintTop_toBottomOf="@id/text_view_dog_name"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             style="@style/TextAppearance.AppCompat.Body1"/>
 
         <TextView
-            android:id="@+id/text_view_dog_hobbies_grid"
+            android:id="@+id/text_view_dog_hobbies"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_view_dog_age_grid"
+            app:layout_constraintTop_toBottomOf="@id/text_view_dog_age"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             style="@style/TextAppearance.AppCompat.Body1"

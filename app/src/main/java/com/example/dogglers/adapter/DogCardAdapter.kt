@@ -19,23 +19,27 @@ import android.content.Context
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.dogglers.data.DataSource
 
 /**
- * Adapter to inflate the appropriate list item layout and populate the view with information
- * from the appropriate data source
+ * Адаптер для расширения соответствующего макета элемента списка и заполнения представления информацией
+ * из соответствующего источника данных
  */
 class DogCardAdapter(
     private val context: Context?,
     private val layout: Int
 ): RecyclerView.Adapter<DogCardAdapter.DogCardViewHolder>() {
 
-    // TODO: Initialize the data using the List found in data/DataSource
+    // ЗАДАЧА: Инициализируйте данные, используя список, найденный в data/Источнике данных
+    val dogs = DataSource
+
 
     /**
      * Initialize view elements
      */
     class DogCardViewHolder(view: View?): RecyclerView.ViewHolder(view!!) {
-        // TODO: Declare and initialize all of the list item UI components
+        // ЧТО НУЖНО СДЕЛАТЬ: объявить и инициализировать все компоненты пользовательского интерфейса элемента списка
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DogCardViewHolder {
