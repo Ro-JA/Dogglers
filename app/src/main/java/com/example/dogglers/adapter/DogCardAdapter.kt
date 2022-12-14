@@ -35,7 +35,7 @@ import com.example.dogglers.model.Dog
 class DogCardAdapter(
     private val context: Context?,
     private val layout: Int
-): RecyclerView.Adapter<DogCardAdapter.DogCardViewHolder>() {
+) : RecyclerView.Adapter<DogCardAdapter.DogCardViewHolder>() {
 
     // ЗАДАЧА: Инициализируйте данные, используя список, найденный в data/Источнике данных
     private val listDogs = DataSource.dogs
@@ -44,10 +44,10 @@ class DogCardAdapter(
     /**
      * Initialize view elements
      */
-    class DogCardViewHolder(view: View?): RecyclerView.ViewHolder(view!!) {
+    class DogCardViewHolder(view: View?) : RecyclerView.ViewHolder(view!!) {
         // ЧТО НУЖНО СДЕЛАТЬ: объявить и инициализировать все компоненты пользовательского интерфейса элемента списка
         val imageDog: ImageView = view!!.findViewById(R.id.image_view_dog)
-        val nameDog: TextView =  view!!.findViewById(R.id.text_view_dog_name)
+        val nameDog: TextView = view!!.findViewById(R.id.text_view_dog_name)
         val ageDog: TextView = view!!.findViewById(R.id.text_view_dog_age)
         val hobbiesDog: TextView = view!!.findViewById(R.id.text_view_dog_hobbies)
     }
@@ -61,8 +61,8 @@ class DogCardAdapter(
 
         // TODO: Значение Null не должно передаваться владельцу представления. Это должно быть обновлено, чтобы отразить
         // раздутый макет.
-        val adapterLayout = if(layout == 3) {
-           LayoutInflater.from(parent.context)
+        val adapterLayout = if (layout == 3) {
+            LayoutInflater.from(parent.context)
                 .inflate(R.layout.grid_list_item, parent, false)
         } else {
             LayoutInflater.from(parent.context)
@@ -72,15 +72,23 @@ class DogCardAdapter(
     }
 
     override fun getItemCount(): Int = listDogs.size // ЗАДАЧА: вернуть размер набора данных вместо 0
+
     override fun onBindViewHolder(holder: DogCardAdapter.DogCardViewHolder, position: Int) {
-        // TODO: Get the data at the current position
-        // TODO: Set the image resource for the current dog
-        // TODO: Set the text for the current dog's name
-        // TODO: Set the text for the current dog's age
+        // ЧТО НУЖНО СДЕЛАТЬ: Получить данные в текущей позиции
+// TODO: Установите ресурс изображения для текущей собаки
+// ЗАДАЧА: Задайте текст для имени текущей собаки.
+// ЗАДАЧА: Установите текст для текущего возраста собаки
         val resources = context?.resources
-        // TODO: Set the text for the current dog's hobbies by passing the hobbies to the
-        //  R.string.dog_hobbies string constant.
-        //  Passing an argument to the string resource looks like:
-        //  resources?.getString(R.string.dog_hobbies, dog.hobbies)
+        val item = listDogs[position]
+        holder.imageDog.setImageResource(item.imageResourceId)
+        holder.ageDog.text = resources!!.getString(R.string.dog_age, item.age)
+        holder.hobbiesDog.text = resources!!.getString(R.string.dog_hobbies, item.hobbies)
+        holder.nameDog.text = item.name
+
+
+        // TODO: Задайте текст для хобби текущей собаки, передав хобби в
+        // строковую константу R.string.dog_hobbies.
+        // Передача аргумента строковому ресурсу выглядит следующим образом:
+        // ресурсы?.getString(R.string.dog_hobbies, dog.hobbies)
     }
 }
