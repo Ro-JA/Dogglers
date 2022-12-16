@@ -33,10 +33,11 @@
            android:layout_height="194dp"
            android:layout_width="match_parent"
            app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintTop_toTopOf="parent"
            android:scaleType="centerCrop"
            tools:background="@drawable/ic_launcher_foreground"
-           />
+           android:importantForAccessibility="no"/>
 
         <TextView
             android:id="@+id/text_view_dog_name"
